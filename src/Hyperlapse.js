@@ -4,6 +4,22 @@
  * @copyright Teehan+Lax 2013
  */
 
+
+//not sure what this will break.
+
+
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
+}
+
+
+
+
 Number.prototype.toRad = function() {
 	return this * Math.PI / 180;
 };
@@ -499,6 +515,7 @@ var Hyperlapse = function(container, params) {
 
 	// animates the playhead forward or backward depending on direction
 	var loop = function() {
+		sleep(300);
 		drawMaterial();
 
 		if(_forward) {
